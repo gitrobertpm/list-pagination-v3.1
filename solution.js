@@ -3,9 +3,6 @@ FSJS project 2 - List Pagination and Filter
 
 -- My solution
 ******************************************/
-/**
-New FSJS project 2 - List Pagination and Filter - v2 - Data version
-*/
 
 "use strict";
 
@@ -14,7 +11,7 @@ const studentContainer = document.querySelector('.student-list');
 const linkContainer = document.querySelector('.link-list');
 const searchContainer = document.querySelector('.header');
 
-const perPage = 10;
+const perPage = 9;
 
 
 /**
@@ -79,7 +76,7 @@ const appendPageLinks = (list) => {
    for (let i = 0; i < linkCount; i++) {
       
       // Add with insertAdjacentHTML - faster than innerHTML
-      linkContainer.insertAdjacentHTML('beforeend', `<li><a href="#">${i + 1}</a></li>`);
+      linkContainer.insertAdjacentHTML('beforeend', `<li><button type="button">${i + 1}</button</li>`);
    }
    
    // Set first link to active
@@ -89,15 +86,15 @@ const appendPageLinks = (list) => {
    linkContainer.addEventListener('click', (e) => {
 
       // if event occurred on anchor element
-      if (e.target.tagName === 'A') {
+      if (e.target.tagName === 'BUTTON') {
          // Pagination links
-         const links = document.querySelectorAll('.link-list a');
+         const buttons = document.querySelectorAll('.link-list button');
 
          // Link that was clicked
          const clickedLink = e.target;
 
          // Remove active class from all links
-         [...links].forEach(link => link.className = '');
+         [...buttons].forEach(link => link.className = '');
 
          // Set active class on current link
          clickedLink.classList.add('active');
@@ -115,7 +112,7 @@ appendPageLinks(dataList);
 const searchMarkup = `
    <label for="search" class="student-search">
       <input id="search" placeholder="Search for students...">
-      <button>&#x1F50D;</button>
+      <button type="button"><img src="img/icn-search.svg" alt="Search icon"></button>
    </label>
 `;
 
@@ -144,14 +141,13 @@ const search = () => {
       appendPageLinks(matches);   
    } else {
       linkContainer.innerHTML = '';
-      studentContainer.innerHTML = `<h2>Sorry, no results when searching for "${searchInput.value}".</h2>`;
+      studentContainer.innerHTML = `<li class="no-results">Sorry, no results when searching for &ldquo;${searchInput.value}&rdquo;</li`;
    }
 }
 
 // Keyup and click listeners for search
 searchInput.addEventListener('keyup', search);
 searchBtn.addEventListener('click', search);
-
 
 
 // const showPage = (list, page) => {

@@ -684,13 +684,6 @@ const data = [
 ];
 
 
-// Add functionality to toggle switch
-// document.querySelector('#toggle-container input').addEventListener('change', (e) => {
-// 	(e.target.checked) ? 
-// 	document.documentElement.style.setProperty('--bg-clr', '0, 0, 0') :
-// 	document.documentElement.style.setProperty('--bg-clr', '255, 255, 255');
-// });
-
 
 /**
  Format date function - Get date from student object and return short date format
