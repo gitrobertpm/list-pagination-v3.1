@@ -3,7 +3,6 @@ FSJS project 2 - List Pagination and Filter
 
 -- My solution
 ******************************************/
-
 "use strict";
 
 const dataList = data;
@@ -148,6 +147,10 @@ const search = () => {
 // Keyup and click listeners for search
 searchInput.addEventListener('keyup', search);
 searchBtn.addEventListener('click', search);
+
+
+
+// You can ignore this ↓ - It's just condensed version of the two main functions above for my reference
 
 
 // const showPage = (list, page) => {
